@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path = "" }) => {
-  const siteUrl = "https://backsolutions.dev"; // Reemplaza con tu dominio real cuando lo compres
+  const siteUrl = "https://back-solutions-front-delta.vercel.app/"; // Reemplaza con tu dominio real cuando lo compres
   const fullUrl = `${siteUrl}${path}`;
 
   return (
