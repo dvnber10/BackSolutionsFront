@@ -10,7 +10,6 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import './App.css';
 
-import logo from './assets/BSLogo.png'; // Asegúrate de tener un logo en la carpeta assets
 
 /**
  * Componente principal de la aplicación.
