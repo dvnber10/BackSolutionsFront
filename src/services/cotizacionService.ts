@@ -3,8 +3,6 @@
 
 import axios from "axios";
 import { type CotizacionFormData } from "../types/types";
-import { analyzeQuotation, calculateFinalPrice } from "./quotationAnalyzer";
-import { generateQuotationHTML, generateQuotationText } from "./quotationGenerator";
 
 // La URL base de la API se obtiene desde las variables de entorno de Vite.
 const API_URL = import.meta.env.VITE_API_URL;
@@ -17,13 +15,6 @@ const API_URL = import.meta.env.VITE_API_URL;
  * @throws Si la respuesta de la red no es exitosa.
  */
 export const enviarCotizacion = async (data: CotizacionFormData) => {
-  // Analizar la cotización automáticamente
-  const analysis = analyzeQuotation(data.detalles, data.servicio);
-  const finalPrice = calculateFinalPrice(analysis.estimatedCost);
-
-  // Generar documento profesional
-  const document = generateQuotationHTML(data, analysis, finalPrice);
-  const plainText = generateQuotationText(data, analysis, finalPrice);
 
   // Preparar datos para el backend
   const quotationData = {
