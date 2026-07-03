@@ -129,7 +129,7 @@ const Contact = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="servicio">Servicio de Interés</label>
-                <select id="servicio" name="servicio" value={formData.servicio} onChange={handleChange}>
+                <select id="servicio" className='selector' name="servicio" value={formData.servicio} onChange={handleChange}>
                   <option value="desarrollo-web">Desarrollo Web</option>
                   <option value="desarrollo-movil">Desarrollo Móvil</option>
                   <option value="chatbots">Chatbots Inteligentes</option>

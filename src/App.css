@@ -679,6 +679,23 @@
   outline: none;
   transition: border-color 180ms ease, box-shadow 180ms ease;
 }
+.selector option {
+  background: rgba(255, 255, 255, 0.04);/* Asegura un fondo oscuro */
+  color: #ffffff;            /* Asegura que el texto sea blanco y legible */
+  border-radius: 0.5rem;          /* Opcional: agrega bordes redondeados a las opciones */
+}
+.selector:focus {
+  outline: none;
+  border-color: #007bff; /* Azul moderno o el color de tu marca */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Para las opciones (lo máximo que el navegador permite) */
+.selector option {
+  background-color: #1e222b;
+  color: #f8f9fa;
+  padding: 12px; /* Nota: Algunos navegadores ignorarán este padding */
+}
 
 .form-group input:focus,
 .form-group select:focus,
