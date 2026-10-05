@@ -108,6 +108,18 @@ compilando y con lint limpio.
 - [x] Contrato verificado contra el backend local: los cuatro endpoints responden y el
       historial nunca trae notas internas.
 
+### Hecho — despliegue en producción
+- [x] `vercel.json` con el rewrite `/(.*)` → `/index.html`. Sin esto, Vercel servía `dist/`
+      como carpeta estática y **toda carga directa de una ruta que no sea `/` daba 404**
+      (o sea, `/admin/login`, `/contact`, `/servicios/...` al abrirlos directo o con F5).
+      Navegar por click funcionaba porque React Router no le pide el archivo al servidor.
+- [x] `src/app/AdminShortcut.tsx`: `Ctrl+Shift+A` / `Cmd+Shift+A` abre `/admin/login` con el
+      router, sin recargar. Es una comodidad, **no seguridad**: las rutas del panel están
+      en el bundle público (`dist/assets/index-*.js`) y cualquiera las encuentra en el
+      fuente. No dispara con el foco en un input, textarea o contenteditable.
+- [ ] Agregar el dominio final de producción a `Cors:AllowedOrigins` del backend
+      (hoy está la preview `back-solutions-front-delta.vercel.app` y `localhost:5173`).
+
 ### Pendiente inmediato
 - [ ] **El backend desplegado está obsoleto**: `https://backsolutions.runasp.net/api` solo
       expone `/api/Cotizar` (Swagger: 1 path). Para ver el sitio con datos reales hay que

@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { AppShell } from './app/AppShell';
+import { AdminShortcut } from './app/AdminShortcut';
 import { Spinner } from './components/ui/Spinner';
 import { RequireAuth } from './features/auth/RequireAuth';
 
@@ -68,6 +69,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <AdminShortcut />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           {/* Panel: pantalla de acceso sin chrome público. */}
