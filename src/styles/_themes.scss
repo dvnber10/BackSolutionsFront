@@ -1,0 +1,93 @@
+// Temas claro y oscuro. El JS siempre fija data-theme="light" o "dark" en <html>
+// (resolviendo "system" antes de pintar), así que acá no hace falta el caso intermedio.
+
+@mixin theme-light {
+  color-scheme: light;
+
+  --bg: #f6f8fb;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eff3f8;
+  --surface-3: #e7edf5;
+
+  --text: #0b1524;
+  --text-muted: #5a6b84;
+  --text-faint: #8494a8;
+  --text-on-accent: #ffffff;
+  --heading: #071022;
+
+  --border: #e1e8f0;
+  --border-strong: #cbd6e3;
+
+  --accent: #0e9f86;
+  --accent-strong: #0b7f6b;
+  --accent-soft: rgba(14, 159, 134, 0.12);
+  --accent-ring: rgba(14, 159, 134, 0.35);
+
+  --danger: #d64550;
+  --danger-soft: rgba(214, 69, 80, 0.12);
+  --warning: #b7791f;
+  --warning-soft: rgba(183, 121, 31, 0.12);
+  --success: #18794e;
+  --success-soft: rgba(24, 121, 78, 0.12);
+  --info: #2563eb;
+  --info-soft: rgba(37, 99, 235, 0.12);
+
+  --shadow-sm: 0 1px 2px rgba(11, 21, 36, 0.06), 0 1px 3px rgba(11, 21, 36, 0.05);
+  --shadow-md: 0 4px 12px rgba(11, 21, 36, 0.07), 0 2px 4px rgba(11, 21, 36, 0.05);
+  --shadow-lg: 0 18px 40px rgba(11, 21, 36, 0.12), 0 4px 12px rgba(11, 21, 36, 0.06);
+  --shadow-accent: 0 12px 28px rgba(14, 159, 134, 0.24);
+
+  --hero-glow: radial-gradient(circle at 20% 0%, rgba(14, 159, 134, 0.16), transparent 45%);
+  --scrim: rgba(7, 16, 34, 0.42);
+}
+
+@mixin theme-dark {
+  color-scheme: dark;
+
+  --bg: #070d16;
+  --bg-elevated: #0b1522;
+  --surface: #0e1826;
+  --surface-2: #13202f;
+  --surface-3: #1a2a3c;
+
+  --text: #e7eef8;
+  --text-muted: #93a4bc;
+  --text-faint: #6b7d96;
+  --text-on-accent: #04120f;
+  --heading: #ffffff;
+
+  --border: #1e2c3e;
+  --border-strong: #2b3d52;
+
+  --accent: #34d3b4;
+  --accent-strong: #22b99c;
+  --accent-soft: rgba(52, 211, 180, 0.14);
+  --accent-ring: rgba(52, 211, 180, 0.4);
+
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.14);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.14);
+  --success: #4ade80;
+  --success-soft: rgba(74, 222, 128, 0.14);
+  --info: #60a5fa;
+  --info-soft: rgba(96, 165, 250, 0.14);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.42);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.5);
+  --shadow-accent: 0 14px 32px rgba(52, 211, 180, 0.22);
+
+  --hero-glow: radial-gradient(circle at 20% 0%, rgba(52, 211, 180, 0.14), transparent 45%);
+  --scrim: rgba(0, 0, 0, 0.55);
+}
+
+:root,
+:root[data-theme='light'] {
+  @include theme-light;
+}
+
+:root[data-theme='dark'] {
+  @include theme-dark;
+}

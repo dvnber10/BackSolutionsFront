@@ -1,36 +1,56 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-interface SEOProps {
-  title: string;
-  description: string;
-  keywords?: string;
-  path?: string;
-}
+const SITE_NAME = 'BackSolutions';
+const BASE_URL = (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://backsolutions.com';
+const DEFAULT_IMAGE = `${BASE_URL}/og-default.png`;
 
-export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path = "" }) => {
-  const siteUrl = "https://back-solutions-front-delta.vercel.app/"; // Reemplaza con tu dominio real cuando lo compres
-  const fullUrl = `${siteUrl}${path}`;
+type SeoProps = {
+  title: string;
+  description?: string | null;
+  image?: string | null;
+  path?: string;
+  type?: 'website' | 'article';
+  noIndex?: boolean;
+  /** Fecha ISO de publicación, para `article:published_time`. */
+  publishedTime?: string | null;
+};
+
+/**
+ * Metadatos del documento por página. Título Open Graph, canonical y robots en un solo
+ * lugar para no repetir el boilerplate en cada página.
+ */
+export function SEO({
+  title,
+  description,
+  image,
+  path,
+  type = 'website',
+  noIndex = false,
+  publishedTime,
+}: SeoProps) {
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  const url = path ? `${BASE_URL}${path}` : BASE_URL;
+  const socialImage = image ?? DEFAULT_IMAGE;
 
   return (
     <Helmet>
-      {/* Metadatos Estándar */}
-      <title>{`${title} | BackSolutions`}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={fullUrl} />
+      <title>{fullTitle}</title>
+      {description && <meta name="description" content={description} />}
+      <link rel="canonical" href={url} />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
-      {/* Protocolo Open Graph (Para redes sociales como LinkedIn, WhatsApp, X) */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={fullUrl} />
-      <meta property="og:image" content={`${siteUrl}/og-image.png`} /> {/* Pon una captura de tu web en public/og-image.png */}
+      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={socialImage} />
+      {description && <meta property="og:description" content={description} />}
+      {publishedTime && <meta property="article:published_time" content={publishedTime} />}
 
-      {/* Twitter Cards */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+      <meta name="twitter:title" content={fullTitle} />
+      {description && <meta name="twitter:description" content={description} />}
+      <meta name="twitter:image" content={socialImage} />
     </Helmet>
   );
-};
+}

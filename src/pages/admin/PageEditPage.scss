@@ -1,0 +1,60 @@
+@use '../../styles/mixins' as *;
+
+.section-editor {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+
+  &__head {
+    display: grid;
+    grid-template-columns: minmax(160px, 200px) minmax(0, 1fr) minmax(0, 1fr) auto;
+    gap: var(--s-3);
+    align-items: end;
+
+    @include until(lg) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    @include until(md) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--s-1);
+    padding-block-end: 1px;
+
+    button {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: var(--text-faint);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      cursor: pointer;
+
+      &:hover:not(:disabled) {
+        color: var(--heading);
+        border-color: var(--border-strong);
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      &[aria-label='Quitar']:hover {
+        background: var(--danger-soft);
+        border-color: var(--danger-border);
+        color: var(--danger);
+      }
+    }
+  }
+}

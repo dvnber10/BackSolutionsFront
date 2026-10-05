@@ -1,0 +1,7 @@
+@use '../../styles/mixins' as *;
+
+// La banda vive en global (_utilities.scss); acá solo el envoltorio de copy para que
+// el botón quede a la derecha sin pegarse al texto en pantallas anchas.
+.cta-band__copy {
+  max-width: 60ch;
+}

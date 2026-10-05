@@ -1,0 +1,92 @@
+@use '../styles/mixins' as *;
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-10);
+  max-width: 900px;
+
+  &__summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-8);
+    padding: var(--s-6);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+  }
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  &__subtitle {
+    margin-bottom: var(--s-4);
+    font-size: var(--text-xl);
+  }
+
+  &__empty {
+    color: var(--text-muted);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+}
+
+.proposal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  padding: var(--s-5) var(--s-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+
+  &__number {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--accent-strong);
+  }
+
+  &__title {
+    margin-top: var(--s-1);
+    font-size: var(--text-lg);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    margin-top: var(--s-2);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--s-3);
+  }
+
+  &__amount {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--heading);
+  }
+}

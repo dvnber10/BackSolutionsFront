@@ -1,0 +1,70 @@
+@use '../../styles/mixins' as *;
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &__title {
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+
+    // El título se estira sobre toda la tarjeta para que el área de clic sea grande.
+    a {
+      color: var(--heading);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+
+  &__text {
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    margin-top: auto;
+  }
+
+  &__link {
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--accent-strong);
+
+    svg {
+      transition: transform var(--dur-base) var(--ease-out);
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+}

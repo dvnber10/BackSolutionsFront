@@ -1,0 +1,85 @@
+@use 'mixins' as *;
+
+// Fallback mientras carga el chunk de una ruta (code-splitting).
+.route-loader {
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  padding-block: var(--s-20);
+}
+
+// Rejilla responsive compartida por las secciones con tarjetas.
+.grid {
+  display: grid;
+  gap: var(--s-6);
+  grid-template-columns: minmax(0, 1fr);
+
+  @include from('sm') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.grid--3,
+.grid--4 {
+  @include from('lg') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.grid--4 {
+  @include from('xl') {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+// Enlace "ver todo" que acompaña a los encabezados de sección.
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--accent-strong);
+  white-space: nowrap;
+
+  svg {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+
+  @include focus-ring;
+}
+
+// Banda de llamada a la acción a ancho completo.
+.cta-band {
+  position: relative;
+  background:
+    linear-gradient(120deg, var(--accent-strong), var(--accent));
+  color: var(--text-on-accent);
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-6);
+    padding-block: var(--s-12);
+  }
+
+  &__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+    color: var(--text-on-accent);
+  }
+
+  &__text {
+    max-width: 52ch;
+    margin-top: var(--s-2);
+    color: inherit;
+    opacity: 0.9;
+  }
+}

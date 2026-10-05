@@ -1,0 +1,16 @@
+@use '../../styles/mixins' as *;
+
+.user-edit {
+  &__static {
+    display: grid;
+    gap: var(--s-1);
+    padding-block: var(--s-2);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-3);
+  }
+}

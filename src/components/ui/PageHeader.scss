@@ -1,0 +1,41 @@
+@use '../../styles/mixins' as *;
+
+.page-header {
+  padding-block: var(--s-16) var(--s-10);
+
+  &__eyebrow {
+    margin-bottom: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+  }
+
+  &__title {
+    max-width: 20ch;
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    letter-spacing: -0.02em;
+  }
+
+  &__intro {
+    max-width: 60ch;
+    margin-top: var(--s-4);
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+  }
+
+  &__extra {
+    margin-top: var(--s-6);
+  }
+
+  &--center {
+    text-align: center;
+
+    .page-header__title,
+    .page-header__intro {
+      margin-inline: auto;
+    }
+  }
+}

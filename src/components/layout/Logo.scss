@@ -1,0 +1,37 @@
+@use '../../styles/mixins' as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--heading);
+  border-radius: var(--r-sm);
+
+  @include focus-ring;
+
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: var(--r-md);
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: var(--text-on-accent);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    line-height: 1;
+    box-shadow: var(--shadow-accent);
+  }
+
+  &__word {
+    font-size: var(--text-lg);
+  }
+
+  &:hover .logo__mark {
+    filter: brightness(1.06);
+  }
+}

@@ -1,0 +1,59 @@
+@use '../../styles/mixins' as *;
+
+.section {
+  padding-block: var(--s-16);
+
+  @include from('md') {
+    padding-block: var(--s-20);
+  }
+
+  &--muted {
+    background: var(--surface-2);
+  }
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--s-6);
+    margin-bottom: var(--s-10);
+  }
+
+  &__head-text {
+    max-width: 62ch;
+  }
+
+  &__eyebrow {
+    margin-bottom: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+  }
+
+  &__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    letter-spacing: -0.02em;
+  }
+
+  &__intro {
+    margin-top: var(--s-4);
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+  }
+
+  &--center {
+    .section__head {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .section__head-text {
+      margin-inline: auto;
+    }
+  }
+}

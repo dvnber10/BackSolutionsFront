@@ -1,0 +1,22 @@
+@use '../../styles/mixins' as *;
+
+.conversation-cell {
+  display: grid;
+  max-width: 360px;
+
+  &__subject {
+    font-weight: var(--weight-semibold);
+    color: var(--heading);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__client {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

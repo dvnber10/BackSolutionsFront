@@ -1,0 +1,118 @@
+@use '../../styles/mixins' as *;
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+
+    .project-card__media img {
+      transform: scale(1.04);
+    }
+
+    .project-card__arrow {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  &__media {
+    display: block;
+    aspect-ratio: 16 / 10;
+    background: var(--surface-2);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur-slow) var(--ease-out);
+    }
+  }
+
+  &__placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-display);
+    font-size: var(--text-6xl);
+    font-weight: var(--weight-bold);
+    color: var(--accent);
+    background:
+      var(--hero-glow),
+      var(--surface-2);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    padding: var(--s-6);
+  }
+
+  &__client {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+  }
+
+  &__title {
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+
+    a {
+      color: var(--heading);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+
+  &__summary {
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    margin-top: var(--s-2);
+  }
+
+  &__arrow {
+    position: absolute;
+    top: var(--s-4);
+    right: var(--s-4);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: var(--s-2);
+    box-sizing: content-box;
+    border-radius: var(--r-pill);
+    background: var(--surface);
+    color: var(--accent-strong);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out);
+  }
+}

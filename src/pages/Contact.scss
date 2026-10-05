@@ -1,0 +1,150 @@
+@use '../styles/mixins' as *;
+
+.contact-layout {
+  display: grid;
+  gap: var(--s-12);
+
+  @include from('lg') {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+
+  &__row {
+    display: grid;
+    gap: var(--s-5);
+
+    @include from('sm') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  // Honeypot: fuera de pantalla para personas, presente en el DOM para bots.
+  &__trap {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  &__error {
+    padding: var(--s-3) var(--s-4);
+    font-size: var(--text-sm);
+    color: var(--danger);
+    background: var(--danger-soft);
+    border-radius: var(--r-md);
+  }
+}
+
+.contact-aside {
+  padding: var(--s-6);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+
+  &__title {
+    margin-bottom: var(--s-4);
+    font-size: var(--text-lg);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--s-3);
+      color: var(--text-muted);
+    }
+
+    svg {
+      flex-shrink: 0;
+      width: 1.15rem;
+      height: 1.15rem;
+      color: var(--accent-strong);
+    }
+
+    a {
+      color: var(--text);
+
+      &:hover {
+        color: var(--accent-strong);
+      }
+    }
+  }
+
+  &__note {
+    margin-top: var(--s-5);
+    font-size: var(--text-sm);
+    color: var(--text-faint);
+  }
+
+  &__chat {
+    display: grid;
+    gap: var(--s-3);
+    justify-items: start;
+    margin-top: var(--s-5);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--border);
+  }
+
+  &__chat-text {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: var(--s-4);
+    font-weight: var(--weight-semibold);
+    color: var(--accent-strong);
+  }
+}
+
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-4);
+  max-width: 60ch;
+  margin-inline: auto;
+  padding: var(--s-12) var(--s-6);
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--success);
+  }
+
+  &__title {
+    font-size: var(--text-2xl);
+  }
+
+  &__text {
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--s-3);
+    margin-top: var(--s-2);
+  }
+}

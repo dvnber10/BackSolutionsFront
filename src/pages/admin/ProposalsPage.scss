@@ -1,0 +1,16 @@
+@use '../../styles/mixins' as *;
+
+.proposal-cell {
+  display: grid;
+
+  &__number {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+  }
+
+  &__title {
+    font-weight: var(--weight-semibold);
+    color: var(--heading);
+  }
+}

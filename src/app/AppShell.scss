@@ -1,0 +1,27 @@
+@use '../styles/mixins' as *;
+
+.site {
+  &__main {
+    flex: 1;
+    padding-block: var(--s-8) var(--s-16);
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--s-2);
+  left: var(--s-2);
+  z-index: var(--z-toast);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  transform: translateY(-200%);
+  transition: transform var(--dur-base) var(--ease-out);
+
+  &:focus {
+    transform: translateY(0);
+  }
+}

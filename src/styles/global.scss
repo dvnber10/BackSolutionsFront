@@ -1,0 +1,10 @@
+// Único punto de entrada de estilos globales.
+// Los componentes NO importan este archivo: importan su propio .scss hermano.
+// Lo único global es esto: tokens, temas, reset y base.
+
+@use 'tokens';
+@use 'themes';
+@use 'reset';
+@use 'base';
+@use 'utilities';
+@use 'admin';

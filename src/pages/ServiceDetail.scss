@@ -1,0 +1,96 @@
+@use '../styles/mixins' as *;
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-bottom: var(--s-6);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-muted);
+
+  &:hover {
+    color: var(--accent-strong);
+  }
+
+  @include focus-ring;
+}
+
+.service-detail {
+  display: grid;
+  gap: var(--s-10);
+
+  @include from('lg') {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+
+  &__paragraph {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+
+    & + & {
+      margin-top: var(--s-5);
+    }
+  }
+
+  &__block {
+    margin-top: var(--s-10);
+  }
+
+  &__subtitle {
+    margin-bottom: var(--s-4);
+    font-size: var(--text-xl);
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+  }
+
+  &__aside {
+    @include from('lg') {
+      position: sticky;
+      top: calc(var(--header-height) + var(--s-6));
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    padding: var(--s-6);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &__card-title {
+    font-size: var(--text-lg);
+  }
+
+  &__price {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+
+    strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--heading);
+    }
+  }
+
+  &__note {
+    font-size: var(--text-sm);
+    color: var(--text-faint);
+  }
+
+  &__card-text {
+    margin-bottom: var(--s-2);
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
+  }
+}

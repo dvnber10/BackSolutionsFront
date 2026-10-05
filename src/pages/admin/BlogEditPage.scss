@@ -1,0 +1,29 @@
+@use '../../styles/mixins' as *;
+
+.post-edit {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: minmax(0, 1fr);
+
+  @include from(lg) {
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    align-items: start;
+  }
+
+  &__main,
+  &__side {
+    display: grid;
+    gap: var(--s-5);
+    align-content: start;
+  }
+}
+
+.tag-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+
+  .check {
+    font-size: var(--text-sm);
+  }
+}

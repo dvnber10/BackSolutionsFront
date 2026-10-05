@@ -1,0 +1,121 @@
+@use '../../styles/mixins' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    min-height: var(--header-height);
+  }
+
+  &__nav {
+    display: none;
+
+    @include from(lg) {
+      display: block;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: var(--s-1);
+  }
+
+  &__link {
+    display: inline-block;
+    padding: var(--s-2) var(--s-3);
+    border-radius: var(--r-pill);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-muted);
+    transition:
+      color var(--dur-base) var(--ease-out),
+      background-color var(--dur-base) var(--ease-out);
+
+    @include focus-ring;
+
+    &:hover {
+      color: var(--heading);
+      background: var(--surface-2);
+    }
+
+    &.is-active {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+  }
+
+  &__cta {
+    display: none;
+    padding: var(--s-2) var(--s-5);
+    border-radius: var(--r-pill);
+    background: var(--accent);
+    color: var(--text-on-accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    transition:
+      background-color var(--dur-base) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+
+    @include focus-ring;
+
+    &:hover {
+      background: var(--accent-strong);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    @include from(md) {
+      display: inline-block;
+    }
+  }
+
+  &__menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition:
+      color var(--dur-base) var(--ease-out),
+      background-color var(--dur-base) var(--ease-out);
+
+    @include focus-ring;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      color: var(--heading);
+      background: var(--surface-2);
+    }
+
+    @include from(lg) {
+      display: none;
+    }
+  }
+}

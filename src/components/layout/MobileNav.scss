@@ -1,0 +1,122 @@
+@use '../../styles/mixins' as *;
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+
+  &__scrim {
+    position: absolute;
+    inset: 0;
+    background: var(--scrim);
+    backdrop-filter: blur(2px);
+    animation: mobile-nav-fade var(--dur-base) var(--ease-out);
+  }
+
+  &__panel {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    width: min(88vw, 360px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-6);
+    padding: var(--s-5);
+    background: var(--bg-elevated);
+    border-inline-start: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    animation: mobile-nav-slide var(--dur-slow) var(--ease-out);
+    overflow-y: auto;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+  }
+
+  &__head-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+
+    @include focus-ring;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      color: var(--heading);
+      background: var(--surface-2);
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-1);
+  }
+
+  &__link {
+    display: block;
+    padding: var(--s-3) var(--s-4);
+    border-radius: var(--r-md);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    color: var(--text-muted);
+
+    @include focus-ring;
+
+    &:hover {
+      color: var(--heading);
+      background: var(--surface-2);
+    }
+
+    &.is-active {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+  }
+}
+
+@keyframes mobile-nav-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-nav-slide {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
