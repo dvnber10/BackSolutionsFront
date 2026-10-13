@@ -7,6 +7,7 @@ import { StateBlock } from '../components/ui/StateBlock';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { CtaBand } from '../components/content/CtaBand';
+import { Prose } from '../components/content/Prose';
 import { useService } from '../features/content/queries';
 import { ApiError } from '../lib/http';
 import { formatCurrency } from '../lib/format';
@@ -66,14 +67,7 @@ export default function ServiceDetail() {
         <div className="service-detail">
           <div className="service-detail__main">
             {data.fullDescription ? (
-              data.fullDescription
-                .split(/\n\n+/)
-                .filter(Boolean)
-                .map((paragraph, index) => (
-                  <p key={index} className="service-detail__paragraph">
-                    {paragraph}
-                  </p>
-                ))
+              <Prose html={data.fullDescription} />
             ) : (
               <p className="service-detail__paragraph">{data.shortDescription}</p>
             )}
