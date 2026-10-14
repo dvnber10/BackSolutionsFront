@@ -88,8 +88,8 @@ export default function Services() {
       </Section>
 
       <CtaBand
-        title="¿No sabés qué servicio necesitás?"
-        text="Contanos el objetivo y te ayudamos a definir el alcance y el camino más corto para llegar."
+        title="¿No sabes qué servicio necesitas?"
+        text="Cuentanos el objetivo y te ayudamos a definir el alcance y el camino más corto para llegar."
         buttonLabel="Pedir asesoría"
       />
     </>

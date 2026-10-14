@@ -77,8 +77,8 @@ export default function Portfolio() {
       </Section>
 
       <CtaBand
-        title="¿Querés ver tu proyecto acá?"
-        text="Contanos tu idea y la convertimos en el próximo caso de éxito."
+        title="¿Quieres ver tu proyecto aquí?"
+        text="Cuentanos tu idea y la convertimos en el próximo caso de éxito."
         buttonLabel="Empezar un proyecto"
       />
     </>

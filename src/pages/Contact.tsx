@@ -105,7 +105,7 @@ export default function Contact() {
               Gracias por escribirnos. Te vamos a contactar al email que nos dejaste.
             </p>
             <p className="contact-success__text">
-              Podés seguir el estado de tu consulta y ver las propuestas cuando estén listas.
+              Puedes seguir el estado de tu consulta y ver las propuestas cuando estén listas.
             </p>
             <div className="contact-success__actions">
               <Button to={`/consulta/${created.publicToken}`}>Seguir mi consulta</Button>
@@ -166,7 +166,7 @@ export default function Contact() {
               </Select>
 
               <Textarea
-                label="Contanos sobre tu proyecto"
+                label="Cuentanos sobre tu proyecto"
                 required
                 placeholder="Objetivos, plazos, referencias…"
                 error={errors.details?.message}
@@ -225,11 +225,11 @@ export default function Contact() {
                 )}
               </ul>
               <p className="contact-aside__note">
-                Respondemos en horario laboral. Si es urgente, escribinos por WhatsApp.
+                Respondemos en horario laboral. Si es urgente, escribenos por WhatsApp.
               </p>
               <div className="contact-aside__chat">
                 <p className="contact-aside__chat-text">
-                  ¿Preferís chatear? Escribinos por el chat sin completar nada más y te
+                  ¿Prefieres chatear? Escribenos por el chat sin completar nada más y te
                   respondemos en el momento.
                 </p>
                 <Button variant="secondary" onClick={openChatWidget}>

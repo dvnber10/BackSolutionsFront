@@ -145,7 +145,7 @@ export default function Home() {
           <StateBlock
             variant="error"
             title="No pudimos cargar los servicios"
-            message="Probá de nuevo en unos segundos."
+            message="Prueba de nuevo en unos segundos."
             onRetry={() => services.refetch()}
           />
         )}
@@ -164,7 +164,7 @@ export default function Home() {
       <Section
         eyebrow="Portafolio"
         title="Proyectos que hablan por nosotros"
-        intro="Algunos de los trabajos que salieron del taller."
+        intro="Algunos de los trabajos que salieron del laboratorio."
         action={
           <Link className="section-link" to="/portfolio">
             Ver portafolio
@@ -195,9 +195,9 @@ export default function Home() {
       <section className="cta-band">
         <div className="cta-band__inner">
           <div>
-            <h2 className="cta-band__title">¿Tenés un proyecto en mente?</h2>
+            <h2 className="cta-band__title">¿Tienes un proyecto en mente?</h2>
             <p className="cta-band__text">
-              Contanos qué necesitás y te devolvemos una propuesta clara, sin vueltas.
+              Cuentanos qué necesitás y te devolvemos una propuesta clara.
             </p>
           </div>
           <Button to="/contact" size="lg" variant="secondary">

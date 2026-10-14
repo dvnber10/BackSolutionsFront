@@ -113,7 +113,7 @@ export default function BlogPost() {
 
       <CtaBand
         title="¿Te resultó útil?"
-        text="Si querés que trabajemos juntos en algo así, escribinos."
+        text="Si quieres que trabajemos juntos en algo así, escribenos."
         buttonLabel="Contactanos"
       />
     </>

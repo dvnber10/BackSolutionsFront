@@ -120,8 +120,8 @@ export default function ProjectDetail() {
       </Section>
 
       <CtaBand
-        title="¿Tenés un desafío parecido?"
-        text="Contanos de qué se trata y vemos cómo lo resolvemos."
+        title="¿Tienes un desafío parecido?"
+        text="Cuentanos de qué se trata y vemos cómo lo resolvemos."
         buttonLabel="Hablemos del proyecto"
       />
     </>
